@@ -52,6 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IMessageHandler.cs" />
+    <Compile Include="Engine\MessageBusEngine.cs" />
+    <Compile Include="Internals\DependencyRegistry.cs" />
+    <Compile Include="Internals\HandlerInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
