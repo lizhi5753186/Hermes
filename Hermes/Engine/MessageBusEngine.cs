@@ -22,6 +22,7 @@ namespace Hermes.Engine
         /// </summary>
         public void Start()
         {
+            // TODO : Thread throttling to help with debugging... Config setting perhaps?
             // TODO : Start a Task to perform work with cancellation token which will be set in the Dispose method...
             // Concurrency Control: https://msdn.microsoft.com/en-us/library/ee789351%28v=vs.110%29.aspx
             //                      https://msdn.microsoft.com/en-us/library/dd997402(v=vs.110).aspx

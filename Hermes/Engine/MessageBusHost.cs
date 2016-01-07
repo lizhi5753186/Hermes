@@ -12,12 +12,16 @@ namespace Hermes.Engine
     /// </summary>
     public static class MessageBusHost
     {
+        // TODO : Need to implement duplex communication between Host and Engine to coordinate shutdown...
+        // This is to keep a reference to the engine and in doing so keeping it from being garbage collected until explcit shutdown... 
+        private static MessageBusEngine _messageBusEngine;
         private readonly static CancellationTokenSource _engineCancellationTokenSource;
 
         static MessageBusHost()
         {
+            _messageBusEngine = null;
             _engineCancellationTokenSource = new CancellationTokenSource();
-            AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
+            AppDomain.CurrentDomain.ProcessExit += ApplicationDomainShutdown;
         }
 
         /// <summary>
@@ -26,7 +30,12 @@ namespace Hermes.Engine
         /// <returns>Initialized Message Bus Engine</returns>
         public static MessageBusEngine GetInitializedMessageBusEngine()
         {
-            // Setup internal container. This container will be used to resolve implementations of the IMessageHandler interface...
+            if (_messageBusEngine != null)
+            {
+                return _messageBusEngine;
+            }
+
+            // Setup internal DI container. This container will be used to resolve implementations of the IMessageHandler interface...
             var container = new Container(c =>
             {
                 c.Scan(scanner =>
@@ -41,15 +50,17 @@ namespace Hermes.Engine
             // TODO : Read and parse custom config sections in config files...
             // TODO : Bootstrap RabbitMQ Client...
 
-            var context = new MessageBusContext(
-                container, 
-                _engineCancellationTokenSource.Token
+            _messageBusEngine = new MessageBusEngine(
+                new MessageBusContext(
+                    container,
+                    _engineCancellationTokenSource.Token
+                    )
                 );
 
-            return new MessageBusEngine(context);
+            return _messageBusEngine;
         }
 
-        private static void CurrentDomain_ProcessExit(
+        private static void ApplicationDomainShutdown(
             object sender,
             EventArgs e
             )
