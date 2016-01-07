@@ -1,5 +1,9 @@
 ﻿using Hermes.Contracts;
 using System;
+using System.Runtime.CompilerServices;
+using Hermes.Internals;
+using StructureMap;
+using StructureMap.Graph;
 
 namespace Hermes.Engine
 {
@@ -8,13 +12,37 @@ namespace Hermes.Engine
     /// </summary>
     public class MessageBusEngine : IDisposable
     {
-        private readonly IMessageBusContext _messageBusContext;
+        private readonly IMessageBusEngineContext _messageBusEngineContext;
 
         internal MessageBusEngine(
-            IMessageBusContext context
+            IMessageBusEngineContext engineContext
             )
         {
-            _messageBusContext = context;
+            _messageBusEngineContext = engineContext;
+        }
+
+        /// <summary>
+        /// Initializes the Hermes message bus engine.
+        /// </summary>
+        /// <returns>Initialized Message Bus Engine</returns>
+        public MessageBusEngine Initialize()
+        {
+            // Setup internal DI container. This container will be used to resolve implementations of the IMessageHandler interface...
+            var container = new Container(c =>
+            {
+                c.Scan(scanner =>
+                {
+                    // TODO : Might want to restrict the types being loaded into this container...
+                    scanner.AssembliesFromApplicationBaseDirectory();
+                    scanner.ConnectImplementationsToTypesClosing(typeof(IMessageHandler<>));
+                    scanner.LookForRegistries();
+                });
+            });
+
+            // TODO : Read and parse custom config sections in config files...
+            // TODO : Bootstrap RabbitMQ Client...
+
+            return this;
         }
 
         /// <summary>

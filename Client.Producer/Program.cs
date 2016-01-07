@@ -7,7 +7,8 @@ namespace Client.Producer
         static void Main(string[] args)
         {
             MessageBusHost
-                .GetInitializedMessageBusEngine()
+                .GetEngine()
+                .Initialize()
                 .Start();
         }
     }

@@ -1,11 +1,9 @@
-﻿using StructureMap;
-using System.Threading;
+﻿using System.Threading;
 
 namespace Hermes.Contracts
 {
-    public interface IMessageBusContext
+    public interface IMessageBusEngineContext
     {
-        Container Container { get; }
         CancellationToken CancellationToken { get; }
     }
 }
