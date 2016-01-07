@@ -52,10 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IMessageBusContext.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
+    <Compile Include="Engine\MessageBusHost.cs" />
     <Compile Include="Internals\DependencyRegistry.cs" />
     <Compile Include="Internals\HandlerInvoker.cs" />
+    <Compile Include="Internals\IMessageConsumer.cs" />
+    <Compile Include="Internals\MessageBusContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
