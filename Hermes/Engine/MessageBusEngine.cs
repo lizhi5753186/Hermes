@@ -40,7 +40,7 @@ namespace Hermes.Engine
         /// </summary>
         public void Start()
         {
-
+            // TODO : Start a Task to perform work with cancellation token which will be set in the Dispose method...
         }
 
         /// <summary>
@@ -49,15 +49,20 @@ namespace Hermes.Engine
         public void Dispose()
         {
             Dispose(true);
-            GC.SuppressFinalize(this);
+            //GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                // Dispose managed resources...
-            }
+            // We're not checking the disposing flag because we do not know whether the 'Dispose' method or the 'Finalizer' will execute first. We want 
+            // the same behaviour regardless of which one fires first...
+            
+            // TODO : Dispose managed resources...
+        }
+
+        ~MessageBusEngine()
+        {
+            Dispose(false);
         }
     }
 }
