@@ -2,6 +2,7 @@
 using System;
 using StructureMap;
 using StructureMap.Graph;
+using Hermes.Internals;
 
 namespace Hermes.Engine
 {
@@ -10,7 +11,10 @@ namespace Hermes.Engine
     /// </summary>
     public class MessageBusEngine : IDisposable
     {
+        private Container _container;
+        private IMessageSenderFactory _messageSenderFactory;
         private readonly IMessageBusEngineContext _messageBusEngineContext;
+        
 
         internal MessageBusEngine(
             IMessageBusEngineContext engineContext
@@ -26,7 +30,7 @@ namespace Hermes.Engine
         public MessageBusEngine Initialize()
         {
             // Setup internal DI container. This container will be used to resolve implementations of the IMessageHandler interface...
-            var container = new Container(c =>
+            _container = new Container(c =>
             {
                 c.Scan(scanner =>
                 {
@@ -36,6 +40,10 @@ namespace Hermes.Engine
                     scanner.LookForRegistries();
                 });
             });
+
+            // Setup the MessageSenderFactory...
+            _messageSenderFactory = new MessageSenderFactory(_container);
+
 
             // TODO : Read and parse custom config sections in config files...
             // TODO : Bootstrap RabbitMQ Client...
@@ -60,12 +68,8 @@ namespace Hermes.Engine
             // TODO : This method will return a factory which will return a message sender per type. This type will receive a reference
             // to the MessageBusEngine (this) class. When a message is sent from this sender type the call will be proxied back to this class
             // where it will be routed to the correct queue...
-            return null;
-        }
 
-        internal void SendMessage()
-        {
-
+            return _messageSenderFactory;
         }
 
         /// <summary>
