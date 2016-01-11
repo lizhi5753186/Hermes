@@ -9,7 +9,8 @@ namespace Hermes.Engine
     /// </summary>
     public static class MessageBusHost
     {
-        // This is to keep a reference to the engine and in doing so keeping it from being garbage collected until explcit shutdown... 
+        // This is to keep a reference to the engine and in doing so keeping it from being garbage collected until an explicit shutdown... The alternative
+        // is to run the engine on a seperate thread. This should be investigated...
         private static MessageBusEngine _messageBusEngine;
         private static readonly CancellationTokenSource EngineCancellationTokenSource;
 
@@ -40,6 +41,12 @@ namespace Hermes.Engine
             return _messageBusEngine;
         }
 
+        /// <summary>
+        /// This will shutdown the Engine in the event the application stops running (Application Domain shuts down). At the moment this is 
+        /// the only shutdown mechanism.
+        /// </summary>
+        /// <param name="sender">Invoker of the Event</param>
+        /// <param name="e">Event Arguments</param>
         private static void ApplicationDomainShutdown(
             object sender,
             EventArgs e

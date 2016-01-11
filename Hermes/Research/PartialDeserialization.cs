@@ -28,7 +28,7 @@
 //            {
 //                Headers = new Dictionary<string, string>()
 //                {
-//                    ["type"] = typeof(MyMessage).ToString()
+//                    ["type"] = typeof(MyMessage).AssemblyQualifiedName
 //                },
 
 //                Message = new MyMessage()

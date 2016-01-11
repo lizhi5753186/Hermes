@@ -12,10 +12,10 @@ namespace Hermes.Engine
     /// </summary>
     public class MessageBusEngine : IDisposable
     {
+        private bool _disposed = false;
         private Container _container;
         private IMessageSenderFactory _messageSenderFactory;
         private readonly IMessageBusEngineContext _messageBusEngineContext;
-        
 
         internal MessageBusEngine(
             IMessageBusEngineContext engineContext
@@ -35,7 +35,8 @@ namespace Hermes.Engine
             {
                 c.Scan(scanner =>
                 {
-                    // TODO : Might want to restrict the types being loaded into this container...
+                    // TODO : Might want to restrict the types being loaded into this container... Stream line type registration... Create
+                    // custom attribute of types of interest to the engine...
                     scanner.AssembliesFromApplicationBaseDirectory();
                     scanner.ConnectImplementationsToTypesClosing(typeof(IMessageHandler<>));
                     scanner.LookForRegistries();
@@ -84,10 +85,17 @@ namespace Hermes.Engine
 
         protected virtual void Dispose(bool disposing)
         {
-            // We're not checking the disposing flag because we do not know whether the 'Dispose' method or the 'Finalizer' will execute first. We want 
-            // the same behaviour regardless of which one fires first...
+            if (_disposed)
+            {
+                return;
+            }
 
-            // TODO : Dispose managed resources...
+            if (disposing)
+            {
+                // TODO : Dispose managed resources...
+            }
+
+            _disposed = true;
         }
 
         /// <summary>
