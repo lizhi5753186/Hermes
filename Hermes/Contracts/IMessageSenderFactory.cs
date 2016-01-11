@@ -3,6 +3,6 @@
     public interface IMessageSenderFactory
     {
         T GetMessageSender<T>()
-            where T : class;
+            where T : IMessage;
     }
 }

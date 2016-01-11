@@ -1,4 +1,4 @@
-﻿namespace Hermes.Internals
+﻿namespace Hermes.Engine.Internal
 {
     internal class HandlerInvoker
     {

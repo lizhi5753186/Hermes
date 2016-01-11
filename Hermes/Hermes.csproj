@@ -52,17 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IMessageBusContext.cs" />
+    <Compile Include="Contracts\IMessage.cs" />
+    <Compile Include="Contracts.Internal\IMessageBusContext.cs" />
+    <Compile Include="Contracts.Internal\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
     <Compile Include="Contracts\IMessageSenderFactory.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
     <Compile Include="Engine\MessageBusHost.cs" />
-    <Compile Include="Internals\DependencyRegistry.cs" />
-    <Compile Include="Internals\HandlerInvoker.cs" />
-    <Compile Include="Internals\IMessageConsumer.cs" />
-    <Compile Include="Internals\MessageBusContext.cs" />
-    <Compile Include="Internals\MessageSenderFactory.cs" />
+    <Compile Include="Engine.Internal\DependencyRegistry.cs" />
+    <Compile Include="Engine.Internal\HandlerInvoker.cs" />
+    <Compile Include="Engine.Internal\IMessageConsumer.cs" />
+    <Compile Include="Engine.Internal\MessageBusContext.cs" />
+    <Compile Include="Engine.Internal\MessageSenderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Research\PartialDeserialization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

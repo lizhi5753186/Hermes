@@ -1,4 +1,4 @@
-﻿using Hermes.Internals;
+﻿using Hermes.Engine.Internal;
 using System;
 using System.Threading;
 
@@ -9,7 +9,6 @@ namespace Hermes.Engine
     /// </summary>
     public static class MessageBusHost
     {
-        // TODO : Need to implement duplex communication between Host and Engine to coordinate shutdown...
         // This is to keep a reference to the engine and in doing so keeping it from being garbage collected until explcit shutdown... 
         private static MessageBusEngine _messageBusEngine;
         private static readonly CancellationTokenSource EngineCancellationTokenSource;

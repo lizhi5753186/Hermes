@@ -1,7 +1,7 @@
 ﻿using Hermes.Contracts;
 using StructureMap;
 
-namespace Hermes.Internals
+namespace Hermes.Engine.Internal
 {
     internal class MessageSenderFactory : IMessageSenderFactory
     {
@@ -13,7 +13,7 @@ namespace Hermes.Internals
         }
 
         public T GetMessageSender<T>() 
-            where T : class
+            where T : IMessage
         {
             return _messageTypeContainer.GetInstance<T>();
         }

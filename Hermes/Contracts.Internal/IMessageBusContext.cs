@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 
-namespace Hermes.Contracts
+namespace Hermes.Contracts.Internal
 {
-    public interface IMessageBusEngineContext
+    internal interface IMessageBusEngineContext
     {
         CancellationToken CancellationToken { get; }
     }

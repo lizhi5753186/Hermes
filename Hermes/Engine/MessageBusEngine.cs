@@ -1,8 +1,9 @@
 ﻿using Hermes.Contracts;
+using Hermes.Contracts.Internal;
 using System;
 using StructureMap;
 using StructureMap.Graph;
-using Hermes.Internals;
+using Hermes.Engine.Internal;
 
 namespace Hermes.Engine
 {
