@@ -2,11 +2,11 @@
 using StructureMap;
 using StructureMap.Graph;
 
-namespace Hermes.Engine.Internal
+namespace Hermes.Engine.Internal.Container.Registries
 {
-    public class DependencyRegistry : Registry
+    public class MessageHandlerRegistry : Registry
     {
-        public DependencyRegistry()
+        public MessageHandlerRegistry()
         {
             Scan(scanner =>
             {
@@ -16,7 +16,6 @@ namespace Hermes.Engine.Internal
                 // custom attribute of types of interest to the engine...
                 scanner.AssembliesFromApplicationBaseDirectory();
                 scanner.ConnectImplementationsToTypesClosing(typeof(IMessageHandler<>));
-                scanner.AddAllTypesOf<IMessage>();
                 scanner.LookForRegistries();
             });
         }

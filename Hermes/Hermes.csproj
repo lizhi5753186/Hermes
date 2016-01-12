@@ -59,7 +59,7 @@
     <Compile Include="Contracts\IMessageHandler.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
     <Compile Include="Engine\MessageBusHost.cs" />
-    <Compile Include="Engine.Internal\DependencyRegistry.cs" />
+    <Compile Include="Engine.Internal\Container.Registries\MessageHandlerRegistry.cs" />
     <Compile Include="Engine.Internal\HandlerInvoker.cs" />
     <Compile Include="Engine.Internal\IMessageConsumer.cs" />
     <Compile Include="Engine.Internal\MessageBusContext.cs" />

@@ -29,6 +29,8 @@ namespace Hermes.Engine
             {
                 c.Scan(scanner =>
                 {
+                    // TODO : Might want to restrict the types being loaded into this container... Stream line type registration... Create
+                    // custom attribute of types of interest to the engine...
                     scanner.TheCallingAssembly();
                     scanner.LookForRegistries();
                 });
