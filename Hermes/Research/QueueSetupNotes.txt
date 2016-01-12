@@ -1,4 +1,6 @@
-﻿Config sections:
+﻿Create custom config section implementation
+
+Config sections:
 When producing:
 	- Need know the rabbitmq exchange \ queue (this complexity could be hidden by naming)
 	- Message type for this exchange (maybe unique message and queue name combination - maybe no, because you can send multiple message to a single queue 

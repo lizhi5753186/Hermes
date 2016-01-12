@@ -36,8 +36,8 @@ namespace Hermes.Engine
                 });
             });
 
-            // TODO : Read and parse custom config sections in config files...
-            // TODO : Bootstrap RabbitMQ Client...
+            // TODO : Read and parse custom config sections in config files... put in own Strategy
+            // TODO : Bootstrap RabbitMQ Client... put in own Strategy (this will allow to add MSMQ 'plugin'
 
             return this;
         }
