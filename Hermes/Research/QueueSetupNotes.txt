@@ -1,0 +1,14 @@
+﻿Config sections:
+When producing:
+	- Need know the rabbitmq exchange \ queue (this complexity could be hidden by naming)
+	- Message type for this exchange
+
+	
+When consuming:
+	- Need to know the rabbitmq PRODUCING exhange (to bins the queue to that exchange)
+	- queue name
+	- message type for this queue
+
+
+
+

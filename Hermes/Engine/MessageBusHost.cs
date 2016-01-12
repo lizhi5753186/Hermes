@@ -1,4 +1,5 @@
-﻿using Hermes.Engine.Internal;
+﻿using Hermes.Contracts;
+using Hermes.Engine.Internal;
 using System;
 using System.Threading;
 
@@ -25,7 +26,7 @@ namespace Hermes.Engine
         /// Initializes the Hermes message bus engine. This returns an Engine Singleton.
         /// </summary>
         /// <returns>Initialized Message Bus Engine</returns>
-        public static MessageBusEngine GetEngine()
+        public static IMessageBusEngine GetEngine()
         {
             if (_messageBusEngine != null)
             {
