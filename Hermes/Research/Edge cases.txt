@@ -1,0 +1,6 @@
+﻿What do we do when the queue is down?
+	- polling?
+	- save message to, say, file system and resend when queue becomes available
+	- log failure
+	- https://www.rabbitmq.com/dotnet-api-guide.html (Automatic Recovery From Network Failures)
+

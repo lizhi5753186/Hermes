@@ -1,14 +1,13 @@
 ﻿Config sections:
 When producing:
 	- Need know the rabbitmq exchange \ queue (this complexity could be hidden by naming)
-	- Message type for this exchange
-
+	- Message type for this exchange (maybe unique message and queue name combination - maybe no, because you can send multiple message to a single queue 
+		 consumer will need check every time a message is consumed ie is a subscription setup for this message type so: check message against in memort mapping, discards message if not subscribed and log it)
 	
 When consuming:
-	- Need to know the rabbitmq PRODUCING exhange (to bins the queue to that exchange)
+	- this queue will be unique per application since every application will bind to the exchange
+	- Need to know the rabbitmq PRODUCING exhange (to bind the queue to that exchange)
 	- queue name
 	- message type for this queue
-
-
-
-
+	- opt: type - event or command (for now only event) <- is this even needed?
+	- opt: qos

@@ -13,7 +13,6 @@ namespace Hermes.Contracts
         /// <returns>Initialized Message Bus Engine</returns>
         IMessageBusEngine Initialize();
 
-
         /// <summary>
         /// Starts the Hermes message bus engine.
         /// </summary>
