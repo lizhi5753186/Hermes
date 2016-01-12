@@ -1,6 +1,6 @@
 ﻿using Hermes.Contracts;
 
-namespace Client.Producer
+namespace Client.Messages
 {
     public class Message : IMessage
     {
