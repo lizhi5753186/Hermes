@@ -23,7 +23,7 @@ namespace Hermes.Tests.Engine.MessageBusHost
         }
 
         [Test]
-        public void ThenTheHostShouldShouldPassTheOriginalCancellationTokenToEngine()
+        public void ThenTheHostShouldPassTheOriginalCancellationTokenToEngine()
         {
             CreatedCancellationToken.ShouldSatisfyAllConditions(
                 () => CreatedCancellationToken.ShouldBe(Hermes.Engine.MessageBusHost.EngineCancellationToken),
