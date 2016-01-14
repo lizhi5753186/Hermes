@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\DataContract.cs" />
     <Compile Include="Contracts\IMessageBusEngine.cs" />
     <Compile Include="Contracts\IMessage.cs" />
     <Compile Include="Contracts.Internal\IMessageBusContext.cs" />

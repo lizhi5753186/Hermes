@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using Hermes.Engine;
 
 namespace Hermes.Contracts
 {
@@ -7,6 +9,11 @@ namespace Hermes.Contracts
     /// </summary>
     public interface IMessageBusEngine : IDisposable
     {
+        /// <summary>
+        /// Get the CancellationToken for this Engine.
+        /// </summary>
+        CancellationToken CancellationToken { get; }
+
         /// <summary>
         /// Initializes the Hermes message bus engine.
         /// </summary>

@@ -10,14 +10,22 @@ namespace Hermes.Engine
     /// </summary>
     public static class MessageBusHost
     {
-        // This is to keep a reference to the engine and in doing so keeping it from being garbage collected until an explicit shutdown... The alternative
-        // is to run the engine on a seperate thread. This should be investigated...
-        private static MessageBusEngine _messageBusEngine;
         private static readonly CancellationTokenSource EngineCancellationTokenSource;
+
+        /// <summary>
+        /// The current cancellation token for the Engine.
+        /// </summary>
+        public static CancellationToken EngineCancellationToken => EngineCancellationTokenSource.Token;
+
+        /// <summary>
+        /// This is to keep a reference to the engine and in doing so keeping it from being garbage collected until an explicit shutdown. The alternative
+        /// is to run the engine on a seperate thread. This should be investigated...
+        /// </summary>
+        public static IMessageBusEngine CurrentEngine { get; private set; }
 
         static MessageBusHost()
         {
-            _messageBusEngine = null;
+            CurrentEngine = null;
             EngineCancellationTokenSource = new CancellationTokenSource();
             AppDomain.CurrentDomain.ProcessExit += ApplicationDomainShutdown;
         }
@@ -28,18 +36,18 @@ namespace Hermes.Engine
         /// <returns>Initialized Message Bus Engine</returns>
         public static IMessageBusEngine GetEngine()
         {
-            if (_messageBusEngine != null)
+            if (CurrentEngine != null)
             {
-                return _messageBusEngine;
+                return CurrentEngine;
             }
 
-            _messageBusEngine = new MessageBusEngine(
+            CurrentEngine = new MessageBusEngine(
                 new MessageBusEngineContext(
                     EngineCancellationTokenSource.Token
                     )
                 );
 
-            return _messageBusEngine;
+            return CurrentEngine;
         }
 
         /// <summary>

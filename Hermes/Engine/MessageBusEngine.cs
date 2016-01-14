@@ -1,6 +1,7 @@
 ﻿using Hermes.Contracts;
 using Hermes.Contracts.Internal;
 using System;
+using System.Threading;
 using StructureMap;
 using StructureMap.Graph;
 
@@ -14,6 +15,9 @@ namespace Hermes.Engine
         private bool _disposed = false;
         private Container _container;
         private readonly IMessageBusEngineContext _messageBusEngineContext;
+
+        public CancellationToken CancellationToken
+            => _messageBusEngineContext.CancellationToken;
 
         internal MessageBusEngine(
             IMessageBusEngineContext engineContext
