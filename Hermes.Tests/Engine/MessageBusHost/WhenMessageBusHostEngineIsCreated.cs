@@ -25,9 +25,10 @@ namespace Hermes.Tests.Engine.MessageBusHost
         [Test]
         public void ThenTheHostShouldShouldPassCancellationTokenToEngine()
         {
-            MessageBusEngine.CancellationToken.ShouldBe(
-                Hermes.Engine.MessageBusHost.EngineCancellationToken
-                );
+            MessageBusEngine.CancellationToken
+                .ShouldBe(
+                    Hermes.Engine.MessageBusHost.EngineCancellationToken
+                    );
         }
     }
 }
