@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Hermes.Tests.Engine.MessageBusHost
 {
     [TestFixture]
-    public class WhenMessageBusHostEngineWasPreviouslyCreated : MessageBusHostTestBase
+    public class WhenMessageBusHostCreatesEngineAndWasPreviouslyCreated : MessageBusHostTestBase
     {
         [OneTimeSetUp]
         public void Scenario()
