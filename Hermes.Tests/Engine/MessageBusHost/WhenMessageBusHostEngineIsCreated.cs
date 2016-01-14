@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Shouldly;
 
 namespace Hermes.Tests.Engine.MessageBusHost
 {
@@ -14,19 +15,17 @@ namespace Hermes.Tests.Engine.MessageBusHost
         [Test]
         public void ThenTheHostShouldPreserveEngineReference()
         {
-            Assert.IsTrue(
-                object.ReferenceEquals(
-                    MessageBusEngine, 
-                    Hermes.Engine.MessageBusHost.CurrentEngine
-                    )
-                );
+            object.ReferenceEquals(
+                MessageBusEngine,
+                Hermes.Engine.MessageBusHost.CurrentEngine
+                )
+                .ShouldBeTrue();
         }
 
         [Test]
         public void ThenTheHostShouldShouldPassCancellationTokenToEngine()
         {
-            Assert.AreEqual(
-                MessageBusEngine.CancellationToken,
+            MessageBusEngine.CancellationToken.ShouldBe(
                 Hermes.Engine.MessageBusHost.EngineCancellationToken
                 );
         }
