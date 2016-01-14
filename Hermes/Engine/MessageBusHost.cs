@@ -15,7 +15,8 @@ namespace Hermes.Engine
         /// <summary>
         /// The current cancellation token for the Engine.
         /// </summary>
-        public static CancellationToken EngineCancellationToken => EngineCancellationTokenSource.Token;
+        public static CancellationToken EngineCancellationToken 
+            => EngineCancellationTokenSource.Token;
 
         /// <summary>
         /// This is to keep a reference to the engine and in doing so keeping it from being garbage collected until an explicit shutdown. The alternative
