@@ -13,6 +13,16 @@ namespace Hermes.Engine
         private static readonly CancellationTokenSource EngineCancellationTokenSource;
 
         /// <summary>
+        /// Invoked before any finalization code is executed.
+        /// </summary>
+        public static event EventHandler<IMessageBusEngine> ShuttingDown;
+
+        /// <summary>
+        /// Executed after the host has completed the engine shutdown logic.
+        /// </summary>
+        public static event EventHandler<IMessageBusEngine> ShutdownCompleted;
+
+        /// <summary>
         /// The current cancellation token for the Engine.
         /// </summary>
         public static CancellationToken EngineCancellationToken 
@@ -61,10 +71,38 @@ namespace Hermes.Engine
         /// </summary>
         /// <param name="sender">Invoker of the Event</param>
         /// <param name="e">Event Arguments</param>
-        private static void ShutdownHost(object sender, EventArgs e)
+        private static void ShutdownHost(
+            object sender, 
+            EventArgs e
+            )
         {
-            // When the application is shutting down, ensure that the engine stop processing and performs a cleanup...
+            InvokeShuttingDownEvent();
+
             EngineCancellationTokenSource.Cancel();
+
+            InvokeShutdownCompletedEvent();
+        }
+
+        private static void InvokeShutdownCompletedEvent()
+        {
+            var afterEvent = ShutdownCompleted;
+            InvokeEvent(afterEvent);
+        }
+
+        private static void InvokeShuttingDownEvent()
+        {
+            var beforeEvent = ShuttingDown;
+            InvokeEvent(beforeEvent);
+        }
+
+        private static void InvokeEvent(
+            EventHandler<IMessageBusEngine> evt
+            )
+        {
+            evt?.Invoke(
+                null,
+                CurrentEngine
+                );
         }
     }
 }

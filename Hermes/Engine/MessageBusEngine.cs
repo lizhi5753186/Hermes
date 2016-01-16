@@ -54,7 +54,9 @@ namespace Hermes.Engine
             // RabbitMQ message consumption: https://www.rabbitmq.com/dotnet-api-guide.html
         }
 
-        public void Publish<T>(T message)
+        public void Publish<T>(
+            T message
+            )
             where T : class, IMessage
         {
             // Lookup message type and load config...
@@ -67,7 +69,9 @@ namespace Hermes.Engine
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected virtual void Dispose(
+            bool disposing
+            )
         {
             if (_disposed)
             {

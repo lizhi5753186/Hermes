@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using Hermes.Engine;
 
 namespace Hermes.Contracts
 {
