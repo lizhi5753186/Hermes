@@ -66,6 +66,7 @@
     <Compile Include="Engine.Internal\MessageBusContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Research\PartialDeserialization.cs" />
+    <Compile Include="UnitTest.Helpers\MessageBusHostProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

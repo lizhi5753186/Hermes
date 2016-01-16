@@ -28,7 +28,11 @@ namespace Hermes.Engine
         {
             CurrentEngine = null;
             EngineCancellationTokenSource = new CancellationTokenSource();
-            AppDomain.CurrentDomain.ProcessExit += ApplicationDomainShutdown;
+            AppDomain.CurrentDomain.ProcessExit += ShutdownHost;
+
+            // This event is a convenience hook into the DomainUnload. This will only fire when this class is hosted in an AppDomain created during runtime.
+            // In order to enable lifetime tracking during unit testing, this event will allow us monitor the class' lifetime.
+            AppDomain.CurrentDomain.DomainUnload += ShutdownHost;
         }
 
         /// <summary>
@@ -57,10 +61,7 @@ namespace Hermes.Engine
         /// </summary>
         /// <param name="sender">Invoker of the Event</param>
         /// <param name="e">Event Arguments</param>
-        private static void ApplicationDomainShutdown(
-            object sender,
-            EventArgs e
-            )
+        private static void ShutdownHost(object sender, EventArgs e)
         {
             // When the application is shutting down, ensure that the engine stop processing and performs a cleanup...
             EngineCancellationTokenSource.Cancel();
