@@ -6,7 +6,8 @@ using Hermes.UnitTest.Helpers;
 
 namespace Hermes.Tests.Engine.MessageBusHost
 {
-    public abstract class MessageBusHostTestBase : MarshalByRefObject
+    public abstract class MessageBusHostTestBase : 
+        MarshalByRefObject
     {
         protected IMessageBusEngine MessageBusEngine;
         protected IMessageBusEngine SecondMessageBusEngine;

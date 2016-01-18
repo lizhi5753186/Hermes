@@ -4,7 +4,8 @@ using Shouldly;
 namespace Hermes.Tests.Engine.MessageBusHost
 {
     [TestFixture]
-    public class WhenMessageBusHostEngineIsCreated : MessageBusHostTestBase
+    public class WhenMessageBusHostEngineIsCreated : 
+        MessageBusHostTestBase
     {
         [OneTimeSetUp]
         public void Scenario()
