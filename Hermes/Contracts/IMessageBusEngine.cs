@@ -5,8 +5,9 @@ namespace Hermes.Contracts
 {
     /// <summary>
     /// The contract describing the MessageBusEngine.
-    /// </summary>
-    public interface IMessageBusEngine : IDisposable
+    /// </summary>    
+    public interface IMessageBusEngine : 
+        IDisposable
     {
         /// <summary>
         /// Get the CancellationToken for this Engine.

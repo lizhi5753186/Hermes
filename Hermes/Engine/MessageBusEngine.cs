@@ -10,7 +10,8 @@ namespace Hermes.Engine
     /// <summary>
     /// A class representing a Hermes message bus engine.
     /// </summary>
-    public class MessageBusEngine : IMessageBusEngine
+    public class MessageBusEngine : 
+        IMessageBusEngine
     {
         private bool _disposed = false;
         private Container _container;

@@ -58,6 +58,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Engine\MessageBusHost\WhenMessageBusHostAppDomainIsUnloaded.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostCreatesEngineAndWasPreviouslyCreated.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostEngineIsCreated.cs" />
     <Compile Include="Engine\MessageBusHost\MessageBusHostTestBase.cs" />

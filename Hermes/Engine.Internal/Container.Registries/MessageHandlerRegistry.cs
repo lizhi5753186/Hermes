@@ -4,7 +4,8 @@ using StructureMap.Graph;
 
 namespace Hermes.Engine.Internal.Container.Registries
 {
-    public class MessageHandlerRegistry : Registry
+    public class MessageHandlerRegistry : 
+        Registry
     {
         public MessageHandlerRegistry()
         {

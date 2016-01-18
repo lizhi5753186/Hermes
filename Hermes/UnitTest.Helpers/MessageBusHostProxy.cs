@@ -10,13 +10,26 @@ namespace Hermes.UnitTest.Helpers
     /// to run the Host in a controlled (dynamically created Application Domain) which could be tracked to monitor object lifetimes
     /// and destruction logic.
     /// </summary>
-    public class MessageBusHostProxy : MarshalByRefObject
+    public class MessageBusHostProxy : 
+        MarshalByRefObject
     {
         public CancellationToken EngineCancellationToken
             => MessageBusHost.EngineCancellationToken;
 
         public IMessageBusEngine CurrentEngine
             => MessageBusHost.CurrentEngine;
+
+        public event EventHandler<IMessageBusEngine> ShuttingDown
+        {
+            add { MessageBusHost.ShuttingDown += value; }
+            remove { MessageBusHost.ShuttingDown -= value; }
+        }
+
+        public event EventHandler<IMessageBusEngine> ShutdownCompleted
+        {
+            add { MessageBusHost.ShutdownCompleted += value; }
+            remove { MessageBusHost.ShutdownCompleted -= value; }
+        }
 
         public IMessageBusEngine GetEngine()
         {
