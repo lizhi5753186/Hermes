@@ -20,6 +20,10 @@ namespace Hermes.Engine
         public CancellationToken CancellationToken
             => _messageBusEngineContext.CancellationToken;
 
+        /// <summary>
+        /// This class can only be instantiated by types internal to this assembly.
+        /// </summary>
+        /// <param name="engineContext"></param>
         internal MessageBusEngine(
             IMessageBusEngineContext engineContext
             )
@@ -27,6 +31,10 @@ namespace Hermes.Engine
             _messageBusEngineContext = engineContext;
         }
 
+        /// <summary>
+        /// Initializes the Message Bus Engine.
+        /// </summary>
+        /// <returns>An initialized Message Bus Engine</returns>
         public IMessageBusEngine Initialize()
         {
             // Setup internal DI container. This container will be used to resolve implementations of the IMessageHandler interface...
@@ -47,6 +55,9 @@ namespace Hermes.Engine
             return this;
         }
 
+        /// <summary>
+        /// Start the Message Bus Engine. This will start dispatching and consuming messages.
+        /// </summary>
         public void Start()
         {
             // TODO : Thread throttling to help with debugging... Config setting perhaps?
@@ -55,6 +66,11 @@ namespace Hermes.Engine
             // RabbitMQ message consumption: https://www.rabbitmq.com/dotnet-api-guide.html
         }
 
+        /// <summary>
+        /// Publish a message onto the Message Bus.
+        /// </summary>
+        /// <typeparam name="T">Message of Type T</typeparam>
+        /// <param name="message">Concrete Message</param>
         public void Publish<T>(
             T message
             )
