@@ -84,20 +84,20 @@ namespace Hermes.Engine
             EventArgs e
             )
         {
-            InvokeShuttingDownEvent();
+            RaiseShuttingDownEvent();
             EngineCancellationTokenSource.Cancel();
-            InvokeShutdownCompletedEvent();
+            RaiseShutdownCompletedEvent();
 
             Cleanup();
         }
 
-        private static void InvokeShutdownCompletedEvent()
+        private static void RaiseShutdownCompletedEvent()
         {
             var afterEvent = ShutdownCompleted;
             RaiseEvent(afterEvent);
         }
 
-        private static void InvokeShuttingDownEvent()
+        private static void RaiseShuttingDownEvent()
         {
             var beforeEvent = ShuttingDown;
             RaiseEvent(beforeEvent);
