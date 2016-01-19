@@ -45,7 +45,7 @@ namespace Hermes.Engine
         /// <summary>
         /// Initializes the Hermes message bus engine. This returns an Engine Singleton.
         /// </summary>
-        /// <returns>Initialized Message Bus Engine</returns>
+        /// <returns>An un-initialized Message Bus Engine</returns>
         public static IMessageBusEngine GetEngine()
         {
             if (CurrentEngine != null)
