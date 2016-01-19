@@ -1,0 +1,28 @@
+﻿            var appDomain = AppDomain.CreateDomain("MessageBusHost.Domain");
+
+            var remoteAssemblyLocation = Assembly
+                .GetCallingAssembly()
+                .Location
+                .Replace(
+                    ".Tests",
+                    string.Empty
+                );
+
+            var assembly = Assembly.Load(
+                AssemblyName.GetAssemblyName(
+                    remoteAssemblyLocation
+                    )
+                );
+
+            var hostProxy = (MessageBusHostProxy)appDomain
+                .CreateInstanceFromAndUnwrap(
+                    assembly.Location,
+                    "Hermes.UnitTest.Helpers.MessageBusHostProxy"
+                );
+
+            hostProxy.Shutdown();
+
+            // This subscription fails... will have to look into this a little more...
+            //hostProxy.ShutdownCompleted += HostProxy_ShutdownCompleted;
+
+            AppDomain.Unload(appDomain);

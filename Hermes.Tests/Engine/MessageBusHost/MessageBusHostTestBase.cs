@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading;
 using Hermes.Contracts;
-using Hermes.UnitTest.Helpers;
 
 namespace Hermes.Tests.Engine.MessageBusHost
 {
-    public abstract class MessageBusHostTestBase : 
-        MarshalByRefObject
+    public abstract class MessageBusHostTestBase 
     {
         protected IMessageBusEngine MessageBusEngine;
         protected IMessageBusEngine SecondMessageBusEngine;
@@ -26,44 +23,20 @@ namespace Hermes.Tests.Engine.MessageBusHost
             GetSecondMessageBusEngine();
         }
 
-        protected void GivenTheMessageBusHostAppDomainIsUnloaded()
+        protected void GivenTheMessageBusHostIsShutdown()
         {
-            var appDomain = AppDomain.CreateDomain("MessageBusHost.Domain");
+            Hermes.Engine
+                .MessageBusHost
+                .ShutdownCompleted += MessageBusHost_ShutdownCompleted;
 
-            var assemblyLocation = Assembly
-                .GetCallingAssembly()
-                .Location
-                .Replace(
-                    ".Tests",
-                    string.Empty
-                );
-
-            var assembly = Assembly.Load(
-                AssemblyName
-                    .GetAssemblyName(
-                        assemblyLocation
-                    )
-                );
-
-            var hostProxy = (MessageBusHostProxy)appDomain
-                .CreateInstanceFromAndUnwrap(
-                    assembly.Location,
-                    "Hermes.UnitTest.Helpers.MessageBusHostProxy"
-                );
-
-            // This subscription fails... will have to look into this a little more...
-            hostProxy.ShutdownCompleted += HostProxy_ShutdownCompleted;
-
-            AppDomain.Unload(appDomain);
+            Hermes.Engine
+                .MessageBusHost
+                .Shutdown();
         }
 
-        private Assembly AppDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        private void MessageBusHost_ShutdownCompleted(object sender, IMessageBusEngine e)
         {
-            return args.RequestingAssembly;
-        }
-
-        private void HostProxy_ShutdownCompleted(object sender, IMessageBusEngine e)
-        {
+            // TODO: Check if engine was diposed...
             IsHostAndEngineShutdown = true;
         }
 

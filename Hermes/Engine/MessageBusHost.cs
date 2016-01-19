@@ -1,6 +1,7 @@
 ﻿using Hermes.Contracts;
 using Hermes.Engine.Internal;
 using System;
+using System.Linq;
 using System.Threading;
 
 namespace Hermes.Engine
@@ -38,11 +39,7 @@ namespace Hermes.Engine
         {
             CurrentEngine = null;
             EngineCancellationTokenSource = new CancellationTokenSource();
-            AppDomain.CurrentDomain.ProcessExit += ShutdownHost;
-
-            // This event is a convenience hook into the DomainUnload. This will only fire when this class is hosted in an AppDomain created during runtime.
-            // In order to enable lifetime tracking during unit testing, this event will allow us monitor the class' lifetime.
-            AppDomain.CurrentDomain.DomainUnload += ShutdownHost;
+            AppDomain.CurrentDomain.ProcessExit += Shutdown;
         }
 
         /// <summary>
@@ -66,36 +63,51 @@ namespace Hermes.Engine
         }
 
         /// <summary>
-        /// This will shutdown the Engine in the event the application stops running (Application Domain shuts down). At the moment this is 
-        /// the only shutdown mechanism.
+        /// This will perform the sequenced shutdown of the Engine when the engine is manually shutdown. 
+        /// </summary>
+        public static void Shutdown()
+        {
+            Shutdown(
+                null,
+                new EventArgs()
+                );
+        }
+
+        /// <summary>
+        /// This will perform the sequenced shutdown of the Engine when application stops running. This is the handler for the AppDomain
+        /// Processexit event.
         /// </summary>
         /// <param name="sender">Invoker of the Event</param>
         /// <param name="e">Event Arguments</param>
-        private static void ShutdownHost(
-            object sender, 
+        private static void Shutdown(
+            object sender,
             EventArgs e
             )
         {
             InvokeShuttingDownEvent();
-
             EngineCancellationTokenSource.Cancel();
-
             InvokeShutdownCompletedEvent();
+
+            Cleanup();
         }
 
         private static void InvokeShutdownCompletedEvent()
         {
             var afterEvent = ShutdownCompleted;
-            InvokeEvent(afterEvent);
+            RaiseEvent(afterEvent);
         }
 
         private static void InvokeShuttingDownEvent()
         {
             var beforeEvent = ShuttingDown;
-            InvokeEvent(beforeEvent);
+            RaiseEvent(beforeEvent);
         }
 
-        private static void InvokeEvent(
+        /// <summary>
+        /// Generic event invoker.
+        /// </summary>
+        /// <param name="evt">Event to raise</param>
+        private static void RaiseEvent(
             EventHandler<IMessageBusEngine> evt
             )
         {
@@ -103,6 +115,27 @@ namespace Hermes.Engine
                 null,
                 CurrentEngine
                 );
+        }
+
+        /// <summary>
+        /// This method performs all kinds of resource cleanup.
+        /// </summary>
+        private static void Cleanup()
+        {
+            UnsubscribeShutDownCompletedSubscribers();
+            UnsubscribeShuttingDownSubscribers();
+
+            AppDomain.CurrentDomain.ProcessExit -= Shutdown;
+        }
+
+        private static void UnsubscribeShuttingDownSubscribers()
+        {
+            ShuttingDown = null;
+        }
+
+        private static void UnsubscribeShutDownCompletedSubscribers()
+        {
+            ShutdownCompleted = null;
         }
     }
 }

@@ -35,5 +35,10 @@ namespace Hermes.UnitTest.Helpers
         {
             return MessageBusHost.GetEngine();
         }
+
+        public void Shutdown()
+        {
+            MessageBusHost.Shutdown();
+        }
     }
 }
