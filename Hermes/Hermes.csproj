@@ -72,7 +72,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Research\config.xml" />
     <Content Include="Research\CrossDomainCalls.txt" />
+    <Content Include="Research\CustomConfigSections.txt" />
     <Content Include="Research\Edge cases.txt" />
     <Content Include="Research\QueueSetupNotes.txt" />
     <Content Include="Research\Type.AssemblyQualifiedName.txt" />
