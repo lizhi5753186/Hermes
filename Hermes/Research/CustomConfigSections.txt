@@ -1,0 +1,4 @@
+﻿
+https://msdn.microsoft.com/en-us/library/2tw134k3(v=vs.110).aspx
+
+http://stackoverflow.com/questions/742905/enabling-intellisense-for-custom-sections-in-config-files

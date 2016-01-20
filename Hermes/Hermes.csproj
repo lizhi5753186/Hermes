@@ -75,6 +75,7 @@
     <Content Include="Research\CrossDomainCalls.txt" />
     <Content Include="Research\Edge cases.txt" />
     <Content Include="Research\QueueSetupNotes.txt" />
+    <Content Include="Research\Type.AssemblyQualifiedName.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
