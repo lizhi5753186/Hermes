@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <configuration>
 
 
-<!--RabbitMQ transport config-->
+  <!--RabbitMQ transport config-->
   <hermesConfiguration>
     <application name="Hermes.Publisher" />
-    <transport type="rabbitmq"/>
 
     <qosConfiguration>
       <qos name="">
@@ -16,12 +16,38 @@
       </qos>
     </qosConfiguration>
 
-    <!--<publishers>
+
+    <!--Alternative-->
+
+    <transport>
+      <rabbitMq>
+        <!--optional-->
+        <exchanges>
+          <exchange name="exchangeName" />
+          <exchange name="exchangeName2" />
+          <exchange name="exchangeName3" />
+        </exchanges>
+
+        <publishers>
+          <message type="MyMessageNamespace.SomeMessage, Application.MessagesAssembly" exchange="exhangeName" />
+          <message type="MyMessageNamespace.SomeMessage1, Application.MessagesAssembly"  />
+        </publishers>
+
+        <subscribers>
+          <message type="MyMessageNamespace.SomeOtherMessage, Application.MessagesAssembly" exchange="exhangeName" />
+          <message type="MyMessageNamespace.SomeOtherMessage2, Application.MessagesAssembly" />
+        </subscribers>
+      </rabbitMq>
+    </transport>
+  </hermesConfiguration>
+
+
+  <!--<publishers>
       <publisher>
         <exchange name="default|exchangeName" >
           <message type="MyMessageNamespace.SomeMessage, Application.MessagesAssembly" /> -->
-    <!--maybe create the exchange under the hood per message type, this way the dev only need to know about the message types -->
-    <!--
+  <!--maybe create the exchange under the hood per message type, this way the dev only need to know about the message types -->
+  <!--
           <message type="MyMessageNamespace.SomeMessage1, Application.MessagesAssembly" messageQosConfiguration="qosName"/>
         </exchange>
       </publisher>
@@ -37,8 +63,8 @@
       <subscriber>
         <exchange name="default|exchangeName" >
           <message type="MyMessageNamespace.SomeOtherMessage, Application.MessagesAssembly" /> -->
-    <!--under the hood I think I should create an exchange per message and hook that exchange to the main one-->
-    <!--
+  <!--under the hood I think I should create an exchange per message and hook that exchange to the main one-->
+  <!--
           <message type="MyMessageNamespace.SomeOtherMessage2, Application.MessagesAssembly" />
         </exchange>
       </subscriber>
@@ -47,29 +73,6 @@
         <message type="MyMessageNamespace.SomeOtherMessage2, Application.MessagesAssembly" />
       </subscriber>
     </subscribers>-->
-
-
-    <!--Alternative-->
-
-    <!--optional-->
-    <exchanges>
-      <exchange name="exchangeName" />
-      <exchange name="exchangeName2" />
-      <exchange name="exchangeName3" />
-    </exchanges>
-
-    <publishers>
-      <message type="MyMessageNamespace.SomeMessage, Application.MessagesAssembly" exchange="exhangeName" />
-      <message type="MyMessageNamespace.SomeMessage1, Application.MessagesAssembly" messageQosConfiguration="qosName" />
-    </publishers>
-
-    <subscribers>
-      <message type="MyMessageNamespace.SomeOtherMessage, Application.MessagesAssembly" exchange="exhangeName" />
-      <message type="MyMessageNamespace.SomeOtherMessage2, Application.MessagesAssembly" />
-    </subscribers>
-
-
-  </hermesConfiguration>
 
 
   <!--MSMQ transport config-->

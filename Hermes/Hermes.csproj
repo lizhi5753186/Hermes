@@ -43,6 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,9 +59,10 @@
     <Compile Include="Contracts.Internal\IMessageBusContext.cs" />
     <Compile Include="Contracts.Internal\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\EngineConfigurationSection.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
     <Compile Include="Engine\MessageBusHost.cs" />
-    <Compile Include="Engine.Internal\Container.Registries\MessageHandlerRegistry.cs" />
+    <Compile Include="Engine.Internal\StructureMap.Registries\MessageHandlerRegistry.cs" />
     <Compile Include="Engine.Internal\HandlerInvoker.cs" />
     <Compile Include="Engine.Internal\IMessageConsumer.cs" />
     <Compile Include="Engine.Internal\MessageBusContext.cs" />
@@ -79,6 +81,7 @@
     <Content Include="Research\QueueSetupNotes.txt" />
     <Content Include="Research\Type.AssemblyQualifiedName.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
