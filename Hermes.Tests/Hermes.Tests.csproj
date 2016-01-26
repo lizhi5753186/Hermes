@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,6 +59,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\EngineConfigurationSectionTestBase.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\WhenRabbitMqEngineConfigurationIsLoaded.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostIsShutdown.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostCreatesEngineAndWasPreviouslyCreated.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostEngineIsCreated.cs" />
@@ -66,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +80,7 @@
       <Name>Hermes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
