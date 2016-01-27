@@ -65,7 +65,6 @@
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostCreatesEngineAndWasPreviouslyCreated.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostEngineIsCreated.cs" />
     <Compile Include="Engine\MessageBusHost\MessageBusHostTestBase.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

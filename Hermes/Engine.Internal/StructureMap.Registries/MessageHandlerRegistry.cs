@@ -2,7 +2,7 @@
 using StructureMap;
 using StructureMap.Graph;
 
-namespace Hermes.Engine.Internal.Container.Registries
+namespace Hermes.Engine.Internal.StructureMap.Registries
 {
     public class MessageHandlerRegistry : 
         Registry

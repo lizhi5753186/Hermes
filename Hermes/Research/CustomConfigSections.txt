@@ -11,3 +11,18 @@ https://msdn.microsoft.com/en-us/library/system.configuration.configurationeleme
 
 http://stackoverflow.com/questions/5661544/correct-implementation-of-a-custom-config-section-with-nested-collections
 http://manyrootsofallevilrants.blogspot.co.nz/2011/07/nested-custom-configuration-collections.html
+http://www.codeproject.com/Articles/730341/How-to-Implement-Custom-configSection-with-Nested
+http://stackoverflow.com/questions/5661544/correct-implementation-of-a-custom-config-section-with-nested-collections
+
+
+
+        // TODO: Revise this strategy...
+        //protected override void BaseAdd(ConfigurationElement element)
+        //{
+        //    if (BaseGet(((MessageConfigurationElement)element).Type) != null)
+        //    {
+        //        throw new ConfigurationErrorsException("Duplicate RabbitMq Message specified");
+        //    }
+
+        //    BaseAdd(element, true);
+        //}

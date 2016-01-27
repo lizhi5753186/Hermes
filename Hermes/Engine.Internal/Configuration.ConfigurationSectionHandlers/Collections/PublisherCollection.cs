@@ -1,0 +1,47 @@
+﻿using System.Configuration;
+using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements;
+
+namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Collections
+{
+    public class PublisherCollection :
+        ConfigurationElementCollection
+    {
+        public override ConfigurationElementCollectionType CollectionType
+            => ConfigurationElementCollectionType.BasicMap;
+
+        protected override ConfigurationElement CreateNewElement()
+        {
+            return new MessageConfigurationElement();
+        }
+
+        protected override object GetElementKey(
+            ConfigurationElement element
+            )
+        {
+            return ((MessageConfigurationElement)element).Type;
+        }
+
+        public MessageConfigurationElement this[int index]
+        {
+            get
+            {
+                return (MessageConfigurationElement)BaseGet(index);
+            }
+            set
+            {
+                if (BaseGet(index) != null)
+                {
+                    BaseRemoveAt(index);
+                }
+
+                BaseAdd(index, value);
+            }
+        }
+
+        public new MessageConfigurationElement this[string name]
+            => (MessageConfigurationElement)BaseGet(name);
+
+        protected override string ElementName
+            => "message";
+    }
+}

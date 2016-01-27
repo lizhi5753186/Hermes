@@ -60,6 +60,13 @@
     <Compile Include="Contracts.Internal\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
     <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\EngineConfigurationSection.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Collections\ExchangeCollection.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\ExchangeConfigurationElement.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\MessageConfigurationElement.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\MsmqConfigurationElement.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Collections\PublisherCollection.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\RabbitMqConfigurationElement.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\TransportConfigurationElement.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
     <Compile Include="Engine\MessageBusHost.cs" />
     <Compile Include="Engine.Internal\StructureMap.Registries\MessageHandlerRegistry.cs" />
