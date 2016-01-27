@@ -6,7 +6,7 @@
     /// <typeparam name="T">Message to handle</typeparam>
     
     // TODO : T need to be of a specific type e.g. IMessage \ IEvent \ ICommand
-    public interface IMessageHandler<T>
+    public interface IMessageHandler<in T>
         where T : class
     {
         void Handle(T message);
