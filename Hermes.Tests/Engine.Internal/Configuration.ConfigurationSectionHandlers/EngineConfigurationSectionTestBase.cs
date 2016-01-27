@@ -5,7 +5,7 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
 {
     public abstract class EngineConfigurationSectionTestBase
     {
-        protected EngineConfigurationSection EngineConfigurationSection;
+        internal EngineConfigurationSection EngineConfigurationSection;
 
         protected void GivenRabbitMqSectionWasSpecified()
         {

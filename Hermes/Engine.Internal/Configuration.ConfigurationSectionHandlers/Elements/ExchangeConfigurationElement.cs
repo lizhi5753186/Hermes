@@ -2,11 +2,11 @@ using System.Configuration;
 
 namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements
 {
-    public class ExchangeConfigurationElement : 
+    internal class ExchangeConfigurationElement : 
         ConfigurationElement
     {
         [ConfigurationProperty("name", IsRequired = true)]
-        public string Name
+        internal string Name
         {
             get { return this["name"] as string; }
             set { this["name"] = value; }

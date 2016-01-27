@@ -3,7 +3,7 @@ using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements
 
 namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Collections
 {
-    public class ExchangeCollection : 
+    internal class ExchangeCollection : 
         ConfigurationElementCollection
     {
         public override ConfigurationElementCollectionType CollectionType
@@ -21,7 +21,7 @@ namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Coll
             return ((ExchangeConfigurationElement)element).Name;
         }
 
-        public ExchangeConfigurationElement this[int index]
+        internal ExchangeConfigurationElement this[int index]
         {
             get
             {
@@ -38,7 +38,7 @@ namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Coll
             }
         }
 
-        public new ExchangeConfigurationElement this[string name]
+        internal new ExchangeConfigurationElement this[string name]
             => (ExchangeConfigurationElement)BaseGet(name);
 
         protected override string ElementName

@@ -2,7 +2,7 @@
 
 namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements
 {
-    public class MsmqConfigurationElement :
+    internal class MsmqConfigurationElement :
         ConfigurationElement
     {
 

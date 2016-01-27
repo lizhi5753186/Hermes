@@ -1,10 +1,9 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements;
 
 namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers
 {
-    public class EngineConfigurationSection : 
+    internal class EngineConfigurationSection : 
         ConfigurationSection
     {
         [ConfigurationProperty("transport", IsRequired = false)]
