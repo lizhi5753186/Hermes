@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Hermes.Contracts;
 using StructureMap;
 using StructureMap.Graph;
 
