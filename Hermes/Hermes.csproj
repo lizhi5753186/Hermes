@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RabbitMQ.Client, Version=3.6.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <HintPath>..\packages\RabbitMQ.Client.3.6.0\lib\net45\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,11 @@
     <Compile Include="Internal.Contracts\IMessageBusContext.cs" />
     <Compile Include="Internal.Contracts\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
+    <Compile Include="Internal.Engine\Configuration.Parser\Parser.cs" />
+    <Compile Include="Internal.Engine\StructureMap.Registries\MapperConfigurationRegistry.cs" />
+    <Compile Include="Internal.Models\Contracts\IMessageDefinition.cs" />
+    <Compile Include="Internal.Models\Contracts\IPublisher.cs" />
+    <Compile Include="Internal.Models\Contracts\IRabbitMqConfigurationModel.cs" />
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\SubscriberCollection.cs" />
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\EngineConfigurationSection.cs" />
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\ExchangeCollection.cs" />
@@ -75,6 +84,7 @@
     <Compile Include="Internal.Engine\HandlerInvoker.cs" />
     <Compile Include="Internal.Engine\IMessageConsumer.cs" />
     <Compile Include="Internal.Engine\MessageBusContext.cs" />
+    <Compile Include="Internal.Models\Contracts\ISubscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Research\PartialDeserialization.cs" />
     <Compile Include="UnitTest.Helpers\MessageBusHostProxy.cs" />
@@ -90,10 +100,7 @@
     <Content Include="Research\QueueSetupNotes.txt" />
     <Content Include="Research\Type.AssemblyQualifiedName.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Internal.Engine\Configuration.Parser\" />
-    <Folder Include="Internal.Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
