@@ -53,26 +53,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internal.Contracts\IConfigurationParser.cs" />
     <Compile Include="Contracts\IDataContract.cs" />
     <Compile Include="Contracts\IMessageBusEngine.cs" />
     <Compile Include="Contracts\IMessage.cs" />
-    <Compile Include="Contracts.Internal\IMessageBusContext.cs" />
-    <Compile Include="Contracts.Internal\IMessageBusMessage.cs" />
+    <Compile Include="Internal.Contracts\IMessageBusContext.cs" />
+    <Compile Include="Internal.Contracts\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\EngineConfigurationSection.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Collections\ExchangeCollection.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\ExchangeConfigurationElement.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\MessageConfigurationElement.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\MsmqConfigurationElement.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Collections\PublisherCollection.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\RabbitMqConfigurationElement.cs" />
-    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\Elements\TransportConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\SubscriberCollection.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\EngineConfigurationSection.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\ExchangeCollection.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\ExchangeConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\MessageConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\MsmqConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\PublisherCollection.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\RabbitMqConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\TransportConfigurationElement.cs" />
     <Compile Include="Engine\MessageBusEngine.cs" />
     <Compile Include="Engine\MessageBusHost.cs" />
-    <Compile Include="Engine.Internal\StructureMap.Registries\MessageHandlerRegistry.cs" />
-    <Compile Include="Engine.Internal\HandlerInvoker.cs" />
-    <Compile Include="Engine.Internal\IMessageConsumer.cs" />
-    <Compile Include="Engine.Internal\MessageBusContext.cs" />
+    <Compile Include="Internal.Engine\StructureMap.Registries\MessageHandlerRegistry.cs" />
+    <Compile Include="Internal.Engine\HandlerInvoker.cs" />
+    <Compile Include="Internal.Engine\IMessageConsumer.cs" />
+    <Compile Include="Internal.Engine\MessageBusContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Research\PartialDeserialization.cs" />
     <Compile Include="UnitTest.Helpers\MessageBusHostProxy.cs" />
@@ -88,7 +90,10 @@
     <Content Include="Research\QueueSetupNotes.txt" />
     <Content Include="Research\Type.AssemblyQualifiedName.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Internal.Engine\Configuration.Parser\" />
+    <Folder Include="Internal.Models\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

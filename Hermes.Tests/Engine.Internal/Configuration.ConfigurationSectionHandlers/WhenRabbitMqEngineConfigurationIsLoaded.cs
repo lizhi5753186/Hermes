@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements;
+using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elements;
 using NUnit.Framework;
 using Shouldly;
 
@@ -22,17 +22,6 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
         }
 
         [Test]
-        public void ThenExchangesShouldBeLoaded()
-        {
-            EngineConfigurationSection
-                .Transport
-                .RabbitMq
-                .Exchanges
-                .Count
-                .ShouldNotBe(0);
-        }
-
-        [Test]
         public void ThenPublishersShouldBeLoaded()
         {
             EngineConfigurationSection
@@ -41,6 +30,35 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
                 .Publishers
                 .Count
                 .ShouldNotBe(0);
+        }
+
+        [Test]
+        public void ThenSubscribersShouldBeLoaded()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Subscribers
+                .Count
+                .ShouldNotBe(0);
+        }
+
+        [Test]
+        public void ThenSubscribersShouldHaveTypeNames()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Subscribers[0]
+                .Type
+                .ShouldBe("MyMessageNamespace.SomeOtherMessage, Application.MessagesAssembly");
+
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Subscribers[1]
+                .Type
+                .ShouldBe("MyMessageNamespace.SomeOtherMessage1, Application.MessagesAssembly");
         }
 
         [Test]
@@ -73,6 +91,28 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             publishers
                 .Count(x => x.Type == "MyMessageNamespace.SomeMessage1, Application.MessagesAssembly")
                 .ShouldBe(1);
+        }
+
+        [Test]
+        public void ThenPublisherWithExchangeShouldContainExchangeName()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Publishers[0]
+                .Exchange?
+                .ShouldBe("exhangeName");
+        }
+
+        [Test]
+        public void ThenSubscriberWithExchangeShouldContainExchangeName()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Subscribers[0]
+                .Exchange?
+                .ShouldBe("exhangeName");
         }
     }
 }

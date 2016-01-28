@@ -1,7 +1,7 @@
 ﻿using Hermes.Contracts;
-using Hermes.Contracts.Internal;
 using System;
 using System.Threading;
+using Hermes.Internal.Contracts;
 using StructureMap;
 using StructureMap.Graph;
 

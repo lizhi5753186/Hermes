@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Hermes.Contracts.Internal
+namespace Hermes.Internal.Contracts
 {
     internal interface IMessageBusEngineContext
     {

@@ -1,8 +1,7 @@
-﻿using System;
-using Hermes.Contracts.Internal;
-using System.Threading;
+﻿using System.Threading;
+using Hermes.Internal.Contracts;
 
-namespace Hermes.Engine.Internal
+namespace Hermes.Internal.Engine
 {
     /// <summary>
     /// Context needed by the Message Bus Engine.

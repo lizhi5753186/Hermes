@@ -1,4 +1,4 @@
-﻿namespace Hermes.Engine.Internal
+﻿namespace Hermes.Internal.Engine
 {
     public interface IMessageConsumer
     {

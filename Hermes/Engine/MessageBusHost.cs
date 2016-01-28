@@ -1,8 +1,8 @@
 ﻿using Hermes.Contracts;
-using Hermes.Engine.Internal;
 using System;
 using System.Linq;
 using System.Threading;
+using Hermes.Internal.Engine;
 
 namespace Hermes.Engine
 {

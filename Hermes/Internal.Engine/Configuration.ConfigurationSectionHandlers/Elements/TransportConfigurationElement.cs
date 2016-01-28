@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements
+namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elements
 {
     internal class TransportConfigurationElement :
         ConfigurationElement

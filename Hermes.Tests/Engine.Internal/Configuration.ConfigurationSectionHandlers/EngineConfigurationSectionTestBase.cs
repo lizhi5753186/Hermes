@@ -1,5 +1,5 @@
 ﻿using System.Configuration;
-using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers;
+using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers;
 
 namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandlers
 {

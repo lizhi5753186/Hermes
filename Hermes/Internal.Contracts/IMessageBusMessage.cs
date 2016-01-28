@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Hermes.Contracts;
 
-namespace Hermes.Contracts.Internal
+namespace Hermes.Internal.Contracts
 {
     internal interface IMessageBusMessage
     {

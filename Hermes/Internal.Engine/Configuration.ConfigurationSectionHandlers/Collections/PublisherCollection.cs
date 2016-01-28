@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Elements;
+using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elements;
 
-namespace Hermes.Engine.Internal.Configuration.ConfigurationSectionHandlers.Collections
+namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Collections
 {
     internal class PublisherCollection :
         ConfigurationElementCollection
