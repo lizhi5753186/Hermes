@@ -93,6 +93,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Research\AutomapperIOC.txt" />
     <Content Include="Research\config.xml" />
     <Content Include="Research\CrossDomainCalls.txt" />
     <Content Include="Research\CustomConfigSections.txt" />
