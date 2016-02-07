@@ -67,6 +67,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CommonMappingTestBase.cs" />
     <Compile Include="MappingTestConfig\Mappers\SourceMapper.cs" />
     <Compile Include="MappingTestConfig\MappingConfigurations\SourceEntityMappingConfiguration.cs" />
     <Compile Include="MappingTestConfig\Models\SourceEntity.cs" />

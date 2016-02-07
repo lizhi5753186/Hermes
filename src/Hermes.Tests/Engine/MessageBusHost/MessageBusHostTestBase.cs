@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Hermes.Contracts;
 
 namespace Hermes.Tests.Engine.MessageBusHost
@@ -11,6 +10,8 @@ namespace Hermes.Tests.Engine.MessageBusHost
         protected CancellationToken CreatedCancellationToken;
         protected CancellationToken SecondCreatedCancellationToken;
         protected bool IsHostAndEngineShutdown = false;
+
+        public abstract void SetupScenario();
 
         protected void GivenSuccesfulEngineRetrieval()
         {

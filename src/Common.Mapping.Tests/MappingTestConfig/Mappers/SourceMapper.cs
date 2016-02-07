@@ -15,7 +15,9 @@ namespace Common.Mapping.Tests.MappingTestConfig.Mappers
             _mapper = mapper;
         }
 
-        public TargetEntity Map(SourceEntity @from)
+        public TargetEntity Map(
+            SourceEntity @from
+            )
         {
             return _mapper.Map<TargetEntity>(@from);
         }

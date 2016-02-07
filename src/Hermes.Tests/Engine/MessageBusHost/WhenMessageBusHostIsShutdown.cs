@@ -8,7 +8,7 @@ namespace Hermes.Tests.Engine.MessageBusHost
         MessageBusHostTestBase
     {
         [OneTimeSetUp]
-        public void Scenario()
+        public override void SetupScenario()
         {
             GivenTheMessageBusHostIsShutdown();
         }

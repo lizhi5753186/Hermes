@@ -10,7 +10,7 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
         EngineConfigurationSectionTestBase
     {
         [OneTimeSetUp]
-        public void Scenario()
+        public override void SetupScenario()
         {
             GivenRabbitMqSectionWasSpecified();
         }

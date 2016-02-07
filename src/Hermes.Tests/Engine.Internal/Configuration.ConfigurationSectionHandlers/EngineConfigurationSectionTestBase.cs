@@ -7,6 +7,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
     {
         internal EngineConfigurationSection EngineConfigurationSection;
 
+        public abstract void SetupScenario();
+
         protected void GivenRabbitMqSectionWasSpecified()
         {
             EngineConfigurationSection = ConfigurationManager.GetSection("hermesConfiguration") as EngineConfigurationSection;
