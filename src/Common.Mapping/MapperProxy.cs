@@ -6,8 +6,7 @@ using StructureMap;
 namespace Common.Mapping
 {
     /// <summary>
-    /// A wrapper around AutoMapper to abstract a specific mapper from the consuming code. The way this wrapper and the supporting classes work
-    /// will add a little more semantics around the mappers being injected into classes.
+    /// Wrapper around AutoMapper. This is to hide some of the complexities of getting AutoMapper up-and-running.
     /// </summary>
     public class MapperProxy : 
         IMapper
@@ -30,7 +29,7 @@ namespace Common.Mapping
                     }
                 });
 
-            _mapper = config.CreateMapper();
+            _mapper = (IMapper)config.CreateMapper();
         }
 
         public IConfigurationProvider ConfigurationProvider
