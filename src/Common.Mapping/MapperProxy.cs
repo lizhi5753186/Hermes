@@ -5,7 +5,11 @@ using StructureMap;
 
 namespace Common.Mapping
 {
-    class MapperProxy : 
+    /// <summary>
+    /// A wrapper around AutoMapper to abstract a specific mapper from the consuming code. The way this wrapper and the supporting classes work
+    /// will add a little more semantics around the mappers being injected into classes.
+    /// </summary>
+    public class MapperProxy : 
         IMapper
     {
         private readonly IEnumerable<IMappingConfiguration> _mappingConfigurations;
