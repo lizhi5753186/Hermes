@@ -119,8 +119,7 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
         [Test]
         public void ThenHostShouldBeInHostList()
         {
-            var hosts =
-                EngineConfigurationSection
+            var hosts = EngineConfigurationSection
                     .Transport
                     .RabbitMq
                     .Hosts
@@ -133,8 +132,6 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
                 .RabbitMq
                 .Publishers[0]
                 .Host.ShouldBeOneOf(hosts);
-
-            //    .ShouldBe("exhangeName");
         }
     }
 }
