@@ -18,7 +18,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
         [Test]
         public void ThenEngineConfigurationSectionShouldBeLoaded()
         {
-            EngineConfigurationSection.ShouldNotBeNull();
+            EngineConfigurationSection
+                .ShouldNotBeNull();
         }
 
         [Test]

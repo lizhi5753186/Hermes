@@ -60,6 +60,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\EngineConfigurationSectionTestBase.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\WhenRabbitMqEngineConfigurationIsLoadedWithHosts.cs" />
+    <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\WhenRabbitMqEngineConfigurationIsLoadedWithHostAndExchanges.cs" />
     <Compile Include="Engine.Internal\Configuration.ConfigurationSectionHandlers\WhenRabbitMqEngineConfigurationIsLoaded.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostIsShutdown.cs" />
     <Compile Include="Engine\MessageBusHost\WhenMessageBusHostCreatesEngineAndWasPreviouslyCreated.cs" />

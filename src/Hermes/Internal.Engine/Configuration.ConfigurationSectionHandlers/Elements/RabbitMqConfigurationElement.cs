@@ -6,6 +6,13 @@ namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elem
     internal class RabbitMqConfigurationElement :
         ConfigurationElement
     {
+        [ConfigurationProperty("hosts", IsRequired = false)]
+        internal HostCollection Hosts
+        {
+            get { return this["hosts"] as HostCollection; }
+            set { this["hosts"] = value; }
+        }
+
         [ConfigurationProperty("publishers", IsRequired = false)]
         internal PublisherCollection Publishers
         {

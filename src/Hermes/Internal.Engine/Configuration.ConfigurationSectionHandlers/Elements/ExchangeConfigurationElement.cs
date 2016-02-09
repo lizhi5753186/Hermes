@@ -1,4 +1,6 @@
+using System;
 using System.Configuration;
+using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Enums;
 
 namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elements
 {
@@ -10,6 +12,25 @@ namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elem
         {
             get { return this["name"] as string; }
             set { this["name"] = value; }
+        }
+
+        [ConfigurationProperty("type", IsRequired = false)]
+        internal RabbitMqExchangeType? Type
+        {
+            get
+            {
+                if (this["type"] != null)
+                {
+                    return (RabbitMqExchangeType)this["type"];
+                }
+
+                return RabbitMqExchangeType.Fanout;
+            }
+
+            set
+            {
+                this["type"] = value.ToString();
+            }
         }
     }
 }

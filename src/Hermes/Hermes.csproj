@@ -64,6 +64,9 @@
     <Compile Include="Internal.Contracts\IMessageBusContext.cs" />
     <Compile Include="Internal.Contracts\IMessageBusMessage.cs" />
     <Compile Include="Contracts\IMessageHandler.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Collections\HostCollection.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\HostConfigurationElement.cs" />
+    <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Enums\RabbitMqExhangeType.cs" />
     <Compile Include="Internal.Engine\Configuration.Parser\Parser.cs" />
     <Compile Include="Internal.Engine\StructureMap.Registries\MapperConfigurationRegistry.cs" />
     <Compile Include="Internal.Models\Contracts\IMessageDefinition.cs" />
