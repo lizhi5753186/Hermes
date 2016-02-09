@@ -18,5 +18,12 @@ namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elem
             get { return this["exchange"] as string; }
             set { this["exchange"] = value; }
         }
+
+        [ConfigurationProperty("host", IsRequired = false)]
+        internal string Host
+        {
+            get { return this["host"] as string; }
+            set { this["host"] = value; }
+        }
     }
 }

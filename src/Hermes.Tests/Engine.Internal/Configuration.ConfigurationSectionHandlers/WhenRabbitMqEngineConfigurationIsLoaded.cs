@@ -115,5 +115,26 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
                 .Exchange?
                 .ShouldBe("exhangeName");
         }
+
+        [Test]
+        public void ThenHostShouldBeInHostList()
+        {
+            var hosts =
+                EngineConfigurationSection
+                    .Transport
+                    .RabbitMq
+                    .Hosts
+                    .Cast<HostConfigurationElement>()
+                    .Select(x => x.Name)
+                    .ToArray();
+
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Publishers[0]
+                .Host.ShouldBeOneOf(hosts);
+
+            //    .ShouldBe("exhangeName");
+        }
     }
 }
