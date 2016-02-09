@@ -4,7 +4,7 @@ using Shouldly;
 namespace Common.Mapping.Tests
 {
     [TestFixture]
-    public class WhenValidMapperIsResolvedFromIocContainer :
+    public class WhenMappingIsDone :
         CommonMappingTestBase
     {
         [OneTimeSetUp]

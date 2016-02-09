@@ -81,7 +81,7 @@
     <Compile Include="MappingTestConfig\Models\SourceEntity.cs" />
     <Compile Include="MappingTestConfig\Models\TargetEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhenValidMapperIsResolvedFromIocContainer.cs" />
+    <Compile Include="WhenMappingIsDone.cs" />
     <Compile Include="WhenValidMappingConfigurationsIsLoaded.cs" />
   </ItemGroup>
   <ItemGroup>
