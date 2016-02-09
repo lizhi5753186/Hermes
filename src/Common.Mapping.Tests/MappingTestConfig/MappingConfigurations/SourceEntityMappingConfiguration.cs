@@ -8,7 +8,11 @@ namespace Common.Mapping.Tests.MappingTestConfig.MappingConfigurations
     {
         public void CreateMapping(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<SourceEntity, TargetEntity>();
+            configuration.CreateMap<SourceEntity, TargetEntity>()
+                .ForMember(
+                    dest => dest.TargetAge,
+                    opts => opts.MapFrom(src => src.Age)
+                );
         }
     }
 }
