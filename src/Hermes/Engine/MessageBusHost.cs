@@ -1,6 +1,7 @@
 ﻿using Hermes.Contracts;
 using System;
 using System.Threading;
+using Hermes.Internal.Contracts;
 using Hermes.Internal.Engine;
 
 namespace Hermes.Engine

@@ -1,13 +1,8 @@
 ﻿using System;
+using Hermes.Internal.Engine;
 
-namespace Hermes.Internal.Engine
+namespace Hermes.Internal.Contracts
 {
-    internal interface IEngineExecutionContext
-    {
-        void Initialize(Action work);
-        void Execute(Action work);
-    }
-
     internal class EngineExecutionContext :
         IEngineExecutionContext
     {
