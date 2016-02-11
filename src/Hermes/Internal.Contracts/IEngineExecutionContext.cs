@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hermes.Internal.Engine
+namespace Hermes.Internal.Contracts
 {
     internal interface IEngineExecutionContext
     {
