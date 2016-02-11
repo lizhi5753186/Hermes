@@ -12,19 +12,5 @@ namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elem
             get { return this["hosts"] as HostCollection; }
             set { this["hosts"] = value; }
         }
-
-        [ConfigurationProperty("publishers", IsRequired = false)]
-        internal PublisherCollection Publishers
-        {
-            get { return this["publishers"] as PublisherCollection; }
-            set { this["publishers"] = value; }
-        }
-
-        [ConfigurationProperty("subscribers", IsRequired = false)]
-        internal SubscriberCollection Subscribers
-        {
-            get { return this["subscribers"] as SubscriberCollection; }
-            set { this["subscribers"] = value; }
-        }
     }
 }

@@ -28,6 +28,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Publishers
                 .Count
                 .ShouldNotBe(0);
@@ -39,6 +41,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Subscribers
                 .Count
                 .ShouldNotBe(0);
@@ -50,6 +54,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Subscribers[0]
                 .Type
                 .ShouldBe("MyMessageNamespace.SomeOtherMessage, Application.MessagesAssembly");
@@ -57,6 +63,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Subscribers[1]
                 .Type
                 .ShouldBe("MyMessageNamespace.SomeOtherMessage1, Application.MessagesAssembly");
@@ -68,6 +76,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Publishers[0]
                 .Type
                 .ShouldBe("MyMessageNamespace.SomeMessage, Application.MessagesAssembly");
@@ -75,6 +85,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Publishers[1]
                 .Type
                 .ShouldBe("MyMessageNamespace.SomeMessage1, Application.MessagesAssembly");
@@ -86,6 +98,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             var publishers = EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Publishers
                 .Cast<MessageConfigurationElement>();
 
@@ -100,6 +114,8 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Publishers[0]
                 .Exchange?
                 .ShouldBe("exhangeName");
@@ -111,27 +127,11 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
             EngineConfigurationSection
                 .Transport
                 .RabbitMq
+                .Hosts[0]
+                .Events
                 .Subscribers[0]
                 .Exchange?
                 .ShouldBe("exhangeName");
-        }
-
-        [Test]
-        public void ThenHostShouldBeInHostList()
-        {
-            var hosts = EngineConfigurationSection
-                    .Transport
-                    .RabbitMq
-                    .Hosts
-                    .Cast<HostConfigurationElement>()
-                    .Select(x => x.Name)
-                    .ToArray();
-
-            EngineConfigurationSection
-                .Transport
-                .RabbitMq
-                .Publishers[0]
-                .Host.ShouldBeOneOf(hosts);
         }
     }
 }

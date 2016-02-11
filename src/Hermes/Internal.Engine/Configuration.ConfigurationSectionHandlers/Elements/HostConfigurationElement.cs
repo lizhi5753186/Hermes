@@ -26,5 +26,12 @@ namespace Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Elem
             get { return this["exchanges"] as ExchangeCollection; }
             set { this["exchanges"] = value; }
         }
+
+        [ConfigurationProperty("events", IsRequired = false)]
+        internal EventAggregateConfigurationElement Events
+        {
+            get { return this["events"] as EventAggregateConfigurationElement; }
+            set { this["events"] = value; }
+        }
     }
 }
