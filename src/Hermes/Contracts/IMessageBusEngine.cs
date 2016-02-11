@@ -15,12 +15,6 @@ namespace Hermes.Contracts
         CancellationToken CancellationToken { get; }
 
         /// <summary>
-        /// Initializes the Hermes message bus engine.
-        /// </summary>
-        /// <returns>Initialized Message Bus Engine</returns>
-        IMessageBusEngine Initialize();
-
-        /// <summary>
         /// Starts the Hermes message bus engine.
         /// </summary>
         void Start();

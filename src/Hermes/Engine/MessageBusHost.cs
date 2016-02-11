@@ -55,7 +55,8 @@ namespace Hermes.Engine
             CurrentEngine = new MessageBusEngine(
                 new MessageBusEngineContext(
                     EngineCancellationTokenSource.Token
-                    )
+                    ),
+                new EngineExecutionContext()
                 );
 
             return CurrentEngine;

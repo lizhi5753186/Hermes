@@ -13,7 +13,6 @@ namespace Client.Producer
 
             MessageBusHost
                 .GetEngine()
-                .Initialize()
                 .Start();
         }
 
