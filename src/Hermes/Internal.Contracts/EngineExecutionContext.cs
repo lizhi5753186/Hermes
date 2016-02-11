@@ -1,6 +1,8 @@
 ﻿using System;
 using Hermes.Internal.Engine;
 
+// Internal Interface member implementation: https://msdn.microsoft.com/en-us/library/ms173121.aspx
+
 namespace Hermes.Internal.Contracts
 {
     internal class EngineExecutionContext :
