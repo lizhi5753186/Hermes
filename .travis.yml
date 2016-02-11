@@ -1,6 +1,6 @@
 language: csharp
 solution: src/Hermes.sln
-install
+install:
  - nuget restore src/Hermes.sln
  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
