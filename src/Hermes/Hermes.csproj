@@ -92,6 +92,7 @@
     <Compile Include="Internal.Engine\HandlerInvoker.cs" />
     <Compile Include="Internal.Engine\IMessageConsumer.cs" />
     <Compile Include="Internal.Engine\MessageBusContext.cs" />
+    <Compile Include="Internal.Models\Contracts\IMessageConcurrency.cs" />
     <Compile Include="Internal.Models\Contracts\ISubscriber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Research\PartialDeserialization.cs" />

@@ -87,7 +87,7 @@ namespace Hermes.Engine
             });
 
             // TODO : Read and parse custom config sections in config files... put in own Strategy
-            // TODO : Bootstrap RabbitMQ Client... put in own Strategy (this will allow to add MSMQ 'plugin'
+            // TODO : Bootstrap RabbitMQ Client... put in own Strategy (this will allow to add MSMQ 'plugin')
         }
 
         public void Dispose()
