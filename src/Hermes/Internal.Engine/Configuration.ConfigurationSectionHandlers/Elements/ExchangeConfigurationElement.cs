@@ -1,4 +1,3 @@
-using System;
 using System.Configuration;
 using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers.Enums;
 

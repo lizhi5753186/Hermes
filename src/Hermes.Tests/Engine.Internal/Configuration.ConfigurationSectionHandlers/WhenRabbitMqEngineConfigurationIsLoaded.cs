@@ -71,6 +71,34 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
         }
 
         [Test]
+        public void ThenSubscriberShouldHaveConcurrency()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Hosts[0]
+                .Events
+                .Subscribers[0]
+                .Concurrency
+                .Count
+                .ShouldBe(10);
+        }
+
+        [Test]
+        public void ThenSubscriberWithNoConCurrencyShouldHaveDefaultCountOf5()
+        {
+            EngineConfigurationSection
+                .Transport
+                .RabbitMq
+                .Hosts[0]
+                .Events
+                .Subscribers[1]
+                .Concurrency
+                .Count
+                .ShouldBe(5);
+        }
+
+        [Test]
         public void ThenPublishersShouldHaveTypeNames()
         {
             EngineConfigurationSection
