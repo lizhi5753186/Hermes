@@ -86,8 +86,12 @@ namespace Hermes.Engine
                 });
             });
 
-            // TODO : Read and parse custom config sections in config files... put in own Strategy
+            // Get the configuration setup for the Engine...
+            var configLoader = _container.GetInstance<IConfigurationLoader>();
+
+            // TODO : Bootstrap the Transport mapping... each transport should be implement with a common interface with the details abstracted away. Both publish and subscribe.
             // TODO : Bootstrap RabbitMQ Client... put in own Strategy (this will allow to add MSMQ 'plugin')
+
         }
 
         public void Dispose()
