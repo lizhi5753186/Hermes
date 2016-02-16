@@ -1,5 +1,5 @@
 ﻿using Hermes.Internal.Contracts;
-using Hermes.Internal.Engine.Configuration.Parser;
+using Hermes.Internal.Engine.Configuration.Loader;
 using StructureMap;
 
 namespace Hermes.Internal.Engine.StructureMap.Registries

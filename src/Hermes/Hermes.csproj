@@ -71,7 +71,7 @@
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Elements\SubscriberMessageConfigurationElement.cs" />
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\EngineConfiguration.cs" />
     <Compile Include="Internal.Engine\Configuration.ConfigurationSectionHandlers\Enums\RabbitMqExhangeType.cs" />
-    <Compile Include="Internal.Engine\Configuration.Parser\ConfigurationLoader.cs" />
+    <Compile Include="Internal.Engine\Configuration.Loader\ConfigurationLoader.cs" />
     <Compile Include="Internal.Engine\EngineExecutionContext.cs" />
     <Compile Include="Internal.Contracts\IEngineExecutionContext.cs" />
     <Compile Include="Internal.Engine\StructureMap.Registries\ConfigurationLoaderRegistry.cs" />
