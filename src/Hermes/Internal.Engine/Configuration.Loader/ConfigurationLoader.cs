@@ -2,7 +2,7 @@
 using Hermes.Internal.Contracts;
 using Hermes.Internal.Engine.Configuration.ConfigurationSectionHandlers;
 
-namespace Hermes.Internal.Engine.Configuration.Parser
+namespace Hermes.Internal.Engine.Configuration.Loader
 {
     internal class ConfigurationLoader :
         IConfigurationLoader
