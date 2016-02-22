@@ -5,13 +5,13 @@ namespace Hermes.Tests.Engine.Internal.Configuration.ConfigurationSectionHandler
 {
     public abstract class EngineConfigurationSectionTestBase
     {
-        internal EngineConfigurationSection EngineConfigurationSection;
+        internal EngineConfiguration EngineConfigurationSection;
 
         public abstract void SetupScenario();
 
         protected void GivenRabbitMqSectionWasSpecified()
         {
-            EngineConfigurationSection = ConfigurationManager.GetSection("hermesConfiguration") as EngineConfigurationSection;
+            EngineConfigurationSection = ConfigurationManager.GetSection("hermesConfiguration") as EngineConfiguration;
         }
     }
 }
